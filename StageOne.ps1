@@ -1,4 +1,4 @@
-Write-verbose "Testing to see whether i can start a service"
+Write-verbose "Testing to see whether i can start a service" -verbose
 $Srv = get-service BITS
 <#
 foreach ($item in $Srv) {
