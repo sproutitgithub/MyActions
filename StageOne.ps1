@@ -1,5 +1,6 @@
 Write-verbose "Testing to see whether i can start a service"
 $Srv = get-service BITS
+<#
 foreach ($item in $Srv) {
     $Srv.start()
     $Srv1 = get-service BITS
@@ -11,3 +12,4 @@ foreach ($item in $Srv) {
         Write-warning "BITS isnt up and running!"
     }
 }
+#>
