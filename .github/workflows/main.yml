@@ -27,6 +27,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: stageone.ps1
+        run: powershell stageone.ps1
         shell: powershell
 
