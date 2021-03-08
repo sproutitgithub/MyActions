@@ -32,6 +32,8 @@ jobs:
               run: |
                 powershell .\stageone.ps1
                 powershell .\stageTwo.ps1
+                echo userandomain
+                echo userpassword
               shell: powershell
 
     job2:
