@@ -25,6 +25,9 @@ jobs:
         steps:
             - name: Step One Checkout
               uses: actions/checkout@v2
+              with:
+                userandomain: ${{secrets.DOMAINANDUSER}}
+                userpassword: ${{secrets.PASSWORD}}
             - name: Step Two Run Two Scripts
               run: |
                 powershell .\stageone.ps1
