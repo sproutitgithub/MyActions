@@ -1,10 +1,15 @@
 Param (
     [string]$userandomain,
     [string]$userpassword
+    [string]$Password,
+    [string]$DomainAndUser
 
 )
 
 Write-verbose "User name is $userandomain and password is $userpassword" -verbose
+
+
+Write-verbose "User name is $DomainAndUser and password is $Password" -verbose
 
 $CredsUname = "sid\djoin"
 $CredsPwd = "Pa55w0rd" | ConvertTo-SecureString -AsPlainText -Force 
