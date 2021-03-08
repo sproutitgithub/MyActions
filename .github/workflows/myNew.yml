@@ -33,8 +33,8 @@ jobs:
         name: job2
         runs-on: self-hosted
         steps:
-        - name: Step Three echo computername
-          run: echo %computername%  
+        - name: Step Two Checkout
+        - uses: actions/checkout@v2
         - name: Step Four get environment variables
           run:  "get-childitem ENV: | sort-object Name"
 
