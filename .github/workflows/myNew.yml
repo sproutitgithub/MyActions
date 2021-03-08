@@ -36,7 +36,7 @@ jobs:
             - name: Step Four get environment variables
               run:  "get-childitem ENV: | sort-object Name"
 
-    job2:
+    job3:
         name: job3
         needs:  [job1,job2]
         runs-on: self-hosted
