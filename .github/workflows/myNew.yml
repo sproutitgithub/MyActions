@@ -24,7 +24,7 @@ jobs:
             - name: Step Two Run Two Scripts
               run: |
                 powershell .\stageone.ps1
-                powershell .\stagTwo.ps1
+                powershell .\stageTwo.ps1
               shell: powershell
 
     job2:
