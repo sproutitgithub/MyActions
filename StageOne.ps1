@@ -16,7 +16,14 @@ foreach ($item in $Srv) {
     $Srv1 = get-service "AGPM Service"
     IF (get-service $Srv1.Name | ? {$_.Status -match 'Running'})
     {
-        Write-verbose "AGPM Service is up and running!"
+        Write-verbose "AGPM Service is up and running. so stopping!"
+        try {
+            get-service $Srv1.name | Stop-service -passthru 
+        }
+        catch {
+            $err1 = $Error[0]
+            Write-warning "I could not stop AGPM Service" -verbose
+        }
     }
     else {
         Write-warning "AGPM Service isnt up and running!"
