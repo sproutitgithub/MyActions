@@ -6,12 +6,13 @@ Invoke-Command -ComputerName DC18 -Credential $Seccreds {
 $Srv = get-service "AGPM Service"
 foreach ($item in $Srv) {
     try {
-        $Srv.start()    
+        Start-Service $item.name  -PassThru  
     }
     catch {
         $Err1 = $Error[0]
         Write-warning $err1 -verbose
     }
+}
     
     $Srv1 = get-service "AGPM Service"
     IF (get-service $Srv1.Name | ? {$_.Status -match 'Running'})
@@ -30,4 +31,3 @@ foreach ($item in $Srv) {
     }
 }
 
-}
