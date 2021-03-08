@@ -31,8 +31,17 @@ jobs:
         name: job2
         runs-on: self-hosted
         steps:
-            - name: Step Two Checkout
+            - name: Step Three Checkout
               uses: actions/checkout@v2
             - name: Step Four get environment variables
               run:  "get-childitem ENV: | sort-object Name"
 
+    job2:
+        name: job3
+        needs:  [job1,job2]
+        runs-on: self-hosted
+        steps:
+            - name: Step Four Checkout
+              uses: actions/checkout@v2
+            - name: Step Five get service WINRM
+              run:  "get-service WINRM"
