@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Powershell
+name: Powershell Multiple Stuff
 
 # Controls when the action will run. 
 on:
@@ -15,23 +15,26 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  Run_Powershell_Script:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
+    job1:
+        name: job1
+                              # The type of runner that the job will run on
+        runs-on: self-hosted
+        steps:
+        - name: Step One Checkout
+                                # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        - uses: actions/checkout@v2
+        - name: Step Two Run Two Scripts
+          run: |
+            powershell .\stageone.ps1
+            powershell .\stagTwo.ps1
+          shell: powershell
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script part 1
-        run: powershell .\stageone.ps1
-        shell: powershell
-
-        # Runs a single command using the runners shell
-      - name: Run a one-line script part 2
-        run: powershell .\stageone.ps1
-        shell: powershell
+    job2:
+        name: job2
+        runs-on: self-hosted
+        steps:
+        - name: Step Three echo computername
+          run: echo %computername%  
+        - name: Step Four get environment variables
+          run:  "get-childitem ENV: | sort-object Name"
 
