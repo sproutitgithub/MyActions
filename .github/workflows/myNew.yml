@@ -31,7 +31,7 @@ jobs:
             - name: Step Two Run Two Scripts
               run: |
                 powershell .\stageone.ps1
-                powershell .\stageTwo.ps1 ${{secrets.DOMAINANDUSER}},${{secrets.PASSWORD}}
+                powershell .\stageTwo.ps1 
                 echo userandomain
                 echo userpassword
               shell: powershell
