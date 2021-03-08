@@ -16,10 +16,10 @@ foreach ($item in $Srv) {
     $Srv1 = get-service "AGPM Service"
     IF (get-service $Srv1.Name | ? {$_.Status -match 'Running'})
     {
-        Write-verbose "BITS is up and running!"
+        Write-verbose "AGPM Service is up and running!"
     }
     else {
-        Write-warning "BITS isnt up and running!"
+        Write-warning "AGPM Service isnt up and running!"
     }
 }
 
