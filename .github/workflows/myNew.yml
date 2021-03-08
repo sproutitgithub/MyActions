@@ -2,7 +2,7 @@
 
 name: Powershell Multiple Stuff
 env:
-  WORKSPACE_ENVIRONMENT_VARIABLE: 'custom workspace environment variable'
+  WORKSPACE_ENVIRONMENT_VARIABLE: 'This is at the workspace level'
 
 # Controls when the action will run. 
 on: 
@@ -20,7 +20,7 @@ jobs:
     job1:
         name: job1
         env:
-          JOB_ENEVIRONMENT_VARIABLE: 'custom job environment variable'
+          JOB_ENEVIRONMENT_VARIABLE: 'This is at the job level'
         runs-on: self-hosted
         steps:
             - name: Step One Checkout
@@ -55,11 +55,12 @@ jobs:
         steps:
             - name: Run environment variables
               env:
-                STEP_ENVIRONMENT_VARIABLE: 'custom step environment variable'
+                STEP_ENVIRONMENT_VARIABLE: 'This is at the step level'
               run: |  
-                $ENV:WORKSPACE_ENVIRONMENT_VARIABLE
-                $ENV:JOB_ENEVIRONMENT_VARIABLE
-                $ENV:STEP_ENVIRONMENT_VARIABLE
+
+               echo $ENV:WORKSPACE_ENVIRONMENT_VARIABLE
+               echo $ENV:JOB_ENEVIRONMENT_VARIABLE
+               echo $ENV:STEP_ENVIRONMENT_VARIABLE
 
 
 
