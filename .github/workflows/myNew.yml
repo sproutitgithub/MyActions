@@ -17,24 +17,22 @@ on:
 jobs:
     job1:
         name: job1
-                              # The type of runner that the job will run on
         runs-on: self-hosted
         steps:
-        - name: Step One Checkout
-                                # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - uses: actions/checkout@v2
-        - name: Step Two Run Two Scripts
-          run: |
-            powershell .\stageone.ps1
-            powershell .\stagTwo.ps1
-          shell: powershell
+            - name: Step One Checkout
+              uses: actions/checkout@v2
+            - name: Step Two Run Two Scripts
+              run: |
+                powershell .\stageone.ps1
+                powershell .\stagTwo.ps1
+              shell: powershell
 
     job2:
         name: job2
         runs-on: self-hosted
         steps:
-        - name: Step Two Checkout
-        - uses: actions/checkout@v2
-        - name: Step Four get environment variables
-          run:  "get-childitem ENV: | sort-object Name"
+            - name: Step Two Checkout
+              uses: actions/checkout@v2
+            - name: Step Four get environment variables
+              run:  "get-childitem ENV: | sort-object Name"
 
