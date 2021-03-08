@@ -1,3 +1,11 @@
+Param (
+    [string]$userandomain,
+    [string]$userpassword
+
+)
+
+Write-verbose "User name is $userandomain and password is $userpassword" -verbose
+
 $CredsUname = "sid\djoin"
 $CredsPwd = "Pa55w0rd" | ConvertTo-SecureString -AsPlainText -Force 
 $Seccreds = New-Object System.Management.Automation.PSCredential -ArgumentList $CredsUname,$CredsPwd
