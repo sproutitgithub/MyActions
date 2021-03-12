@@ -47,7 +47,7 @@ jobs:
 
     job3:
         name: job3
-        #needs:  [job1,job2]
+        #needs:  [job1,job2]...
         runs-on: self-hosted
         steps:
             - name: Step Four Checkout
