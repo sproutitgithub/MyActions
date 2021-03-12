@@ -1,6 +1,6 @@
 Param (
     [string]$userandomain,
-    [string]$userpassword
+    [string]$userpassword,
     [string]$Password,
     [string]$DomainAndUser
 
@@ -19,7 +19,9 @@ Invoke-Command -ComputerName DC18 -Credential $Seccreds {
 $Srv = get-service "AGPM Service"
 foreach ($item in $Srv) {
     try {
-        Start-Service $item.name  -PassThru  
+        Start-Service $item.name  -PassThru 
+
+        
     }
     catch {
         $Err1 = $Error[0]
@@ -43,4 +45,3 @@ foreach ($item in $Srv) {
         Write-warning "AGPM Service isnt up and running!"
     }
 }
-
